@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Library Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1e293b;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 22px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .hero {
+            padding: 70px 7%;
+            background: #e8eefc;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .section {
+            padding: 45px 7%;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>📚 Smart Library</h2>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#books">Books</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Smart Online Library</h1>
+
+        <p>
+            Manage books, borrow books and discover
+            personalized book recommendations.
+        </p>
+
+        <a href="#books" class="btn">Explore Books</a>
+    </section>
+
+    <section class="section" id="features">
+
+        <h2>Our Features</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div style="font-size:40px;">📚</div>
+                <h3>Book Collection</h3>
+                <p>Explore and search books from the library.</p>
+            </div>
+
+            <div class="card">
+                <div style="font-size:40px;">📖</div>
+                <h3>Borrow Books</h3>
+                <p>Borrow available books easily.</p>
+            </div>
+
+            <div class="card">
+                <div style="font-size:40px;">🤖</div>
+                <h3>AI Recommendations</h3>
+                <p>Get personalized book recommendations.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section" id="books">
+
+        <h2>Popular Books</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Python Programming</h3>
+                <p>Programming</p>
+                <br>
+                <a href="#" class="btn">View Book</a>
+            </div>
+
+            <div class="card">
+                <h3>Java Fundamentals</h3>
+                <p>Programming</p>
+                <br>
+                <a href="#" class="btn">View Book</a>
+            </div>
+
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>Web Technology</p>
+                <br>
+                <a href="#" class="btn">View Book</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Smart Online Library Management System</p>
+    </footer>
+
+</body>
+</html>
