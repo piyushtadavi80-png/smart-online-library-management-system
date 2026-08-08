@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Library | Online Library Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #172554;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #dbeafe, #eef2ff);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            color: #172554;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #172554;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 45px;
+            font-size: 17px;
+        }
+
+        /* FEATURES */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #172554;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* BOOKS */
+        .books {
+            background: #eef2ff;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .book {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+
+        .book-cover {
+            height: 150px;
+            background: #dbeafe;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 55px;
+            margin-bottom: 18px;
+        }
+
+        .book h3 {
+            color: #172554;
+            margin-bottom: 8px;
+        }
+
+        .book p {
+            color: #6b7280;
+        }
+
+        /* AI SECTION */
+        .ai-section {
+            background: #172554;
+            color: white;
+            text-align: center;
+        }
+
+        .ai-section .section-title {
+            color: white;
+        }
+
+        .ai-section p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+            color: #dbeafe;
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .features,
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">📚 Smart<span>Library</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#ai">AI</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>
+                Smart Online <span>Library</span>
+            </h1>
+
+            <p>
+                Manage books, explore your favourite titles,
+                borrow books and discover personalized
+                book recommendations with AI.
+            </p>
+
+            <a href="#books" class="btn">Explore Books</a>
+            <a href="#features" class="btn btn-outline">Learn More</a>
+
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+
+        <h2 class="section-title">Our Features</h2>
+
+        <p class="section-subtitle">
+            Everything you need for a modern online library.
+        </p>
+
+        <div class="features">
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Book Collection</h3>
+                <p>
+                    Explore and search books available
+                    in the digital library.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📖</div>
+                <h3>Borrow Books</h3>
+                <p>
+                    Borrow your favourite books and
+                    manage your borrowed collection.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>AI Recommendations</h3>
+                <p>
+                    Get personalized book recommendations
+                    based on your interests.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section class="books" id="books">
+
+        <h2 class="section-title">Popular Books</h2>
+
+        <p class="section-subtitle">
+            Discover some books from our collection.
+        </p>
+
+        <div class="book-grid">
+
+            <div class="book">
+                <div class="book-cover">📘</div>
+                <h3>Python Programming</h3>
+                <p>Programming & Technology</p>
+            </div>
+
+            <div class="book">
+                <div class="book-cover">📗</div>
+                <h3>Java Programming</h3>
+                <p>Programming & Development</p>
+            </div>
+
+            <div class="book">
+                <div class="book-cover">📕</div>
+                <h3>Web Development</h3>
+                <p>HTML, CSS & JavaScript</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- AI -->
+    <section class="ai-section" id="ai">
+
+        <h2 class="section-title">
+            🤖 AI-Powered Book Recommendations
+        </h2>
+
+        <p>
+            Our future recommendation module will analyze
+            user interests and reading history to suggest
+            books that may match their preferences.
+        </p>
+
+        <br>
+
+        <a href="#books" class="btn">
+            Explore Recommendations
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Smart Online Library Management System
+        </p>
+
+        <p>
+            Developed by Piyush Mahebub Tadavi
+        </p>
+
+    </footer>
+
+</body>
+</html>
