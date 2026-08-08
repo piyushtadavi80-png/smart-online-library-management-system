@@ -1,164 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Library - Sign Up</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<title>Login - Smart Library</title>
 
-    body {
-      background: #f5f7fb;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-    .container {
-      width: 90%;
-      max-width: 420px;
-      background: white;
-      padding: 35px;
-      border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.12);
-    }
+body {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .logo {
-      text-align: center;
-      font-size: 45px;
-    }
+.login-container {
+    width: 90%;
+    max-width: 420px;
+    background: white;
+    padding: 35px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
 
-    h1 {
-      text-align: center;
-      margin: 10px 0 5px;
-      color: #1e293b;
-    }
+.logo {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 8px;
+}
 
-    .subtitle {
-      text-align: center;
-      color: #64748b;
-      margin-bottom: 25px;
-    }
+h1 {
+    text-align: center;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
 
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 6px;
-      font-weight: bold;
-      color: #334155;
-    }
+.subtitle {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 25px;
+}
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      font-size: 16px;
-    }
+label {
+    display: block;
+    margin-bottom: 7px;
+    color: #334155;
+    font-weight: bold;
+}
 
-    input:focus {
-      outline: none;
-      border-color: #2563eb;
-    }
+input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
 
-    button {
-      width: 100%;
-      padding: 13px;
-      margin-top: 22px;
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      font-size: 17px;
-      cursor: pointer;
-    }
+input:focus {
+    border-color: #2563eb;
+}
 
-    button:hover {
-      background: #1d4ed8;
-    }
+button {
+    width: 100%;
+    padding: 13px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-    .login {
-      text-align: center;
-      margin-top: 20px;
-      color: #64748b;
-    }
+button:hover {
+    background: #1d4ed8;
+}
 
-    .login a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+.signup {
+    text-align: center;
+    margin-top: 20px;
+    color: #64748b;
+}
+
+.signup a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="login-container">
 
     <div class="logo">📚</div>
 
-    <h1>Create Account</h1>
+    <h1>Welcome Back</h1>
 
-    <p class="subtitle">Join Smart Library</p>
+    <p class="subtitle">
+        Login to Smart Online Library
+    </p>
 
-    <form onsubmit="signup(event)">
+    <form onsubmit="loginUser(event)">
 
-      <label>Full Name</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Enter your name"
-        required
-      >
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
 
-      <label>Email</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Enter your email"
-        required
-      >
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
 
-      <label>Password</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Create a password"
-        required
-      >
-
-      <button type="submit">Sign Up</button>
+        <button type="submit">Login</button>
 
     </form>
 
-    <div class="login">
-      Already have an account?
-      <a href="login.html">Login</a>
+    <div class="signup">
+        Don't have an account?
+        <a href="signup.html">Sign Up</a>
     </div>
 
-  </div>
+</div>
 
-  <script>
-    function signup(event) {
-      event.preventDefault();
+<script>
+function loginUser(event) {
+    event.preventDefault();
 
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-      if (name && email && password) {
-        alert("Account created successfully!");
-        window.location.href = "login.html";
-      }
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
+
+    if (email === savedEmail && password === savedPassword) {
+        alert("Login successful!");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid email or password. Please sign up first.");
     }
-  </script>
+}
+</script>
 
 </body>
 </html>
+    
+
+    
