@@ -454,23 +454,38 @@
     <!-- AI -->
     <section class="ai-section" id="ai">
 
-        <h2 class="section-title">
-            🤖 AI-Powered Book Recommendations
-        </h2>
+    <h2 class="section-title">
+        🤖 AI-Powered Book Recommendations
+    </h2>
 
-        <p>
-            Our future recommendation module will analyze
-            user interests and reading history to suggest
-            books that may match their preferences.
-        </p>
+    <p>
+        Select your favorite category and get personalized
+        book recommendations.
+    </p>
 
-        <br>
+    <div class="recommendation-box">
 
-        <a href="#books" class="btn">
-            Explore Recommendations
-        </a>
+        <label for="category">Choose your interest:</label>
+
+        <select id="category">
+            <option value="">-- Select Category --</option>
+            <option value="programming">Programming</option>
+            <option value="web">Web Development</option>
+            <option value="database">Database</option>
+            <option value="business">Business</option>
+        </select>
+
+        <button class="recommend-btn" onclick="getRecommendations()">
+            Get Recommendations 🤖
+        </button>
+
+    </div>
+
+    <div id="recommendations" class="recommendations">
+    </div>
 
     </section>
+    
 
     <!-- FOOTER -->
     <footer>
@@ -538,7 +553,59 @@ function displayBorrowedBooks() {
 
     displayBorrowedBooks();
     }
+function getRecommendations() {
 
+    const category = document.getElementById("category").value;
+    const recommendations = document.getElementById("recommendations");
+
+    if (category === "") {
+        recommendations.innerHTML =
+            "<p>Please select a category first.</p>";
+        return;
+    }
+
+    const books = {
+
+        programming: [
+            "Python Programming",
+            "Java Programming",
+            "C++ Programming"
+        ],
+
+        web: [
+            "HTML & CSS",
+            "JavaScript for Beginners",
+            "Modern Web Development"
+        ],
+
+        database: [
+            "Database Management System",
+            "SQL for Beginners",
+            "MySQL Essentials"
+        ],
+
+        business: [
+            "Business Management",
+            "Entrepreneurship Basics",
+            "Marketing Fundamentals"
+        ]
+    };
+
+    recommendations.innerHTML = `
+        <h3>📚 Recommended Books</h3>
+        <div class="recommendation-grid">
+            ${books[category].map(function(book) {
+                return `
+                    <div class="recommendation-card">
+                        <div class="recommendation-icon">📖</div>
+                        <h4>${book}</h4>
+                        <p>Recommended for you</p>
+                    </div>
+                `;
+            }).join("")}
+        </div>
+    `;
+}
 window.onload = displayBorrowedBooks;
 </script>
 </body>
