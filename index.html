@@ -212,6 +212,34 @@
         .book p {
             color: #6b7280;
         }
+        /* MY BORROWED BOOKS */
+
+.borrowed-section {
+    background: #f8fafc;
+}
+
+.borrowed-books-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.borrowed-book {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+}
+
+.borrowed-book h3 {
+    color: #172554;
+    margin-bottom: 8px;
+}
+
+.borrowed-book p {
+    color: #6b7280;
+    margin: 6px 0;
+}
 
         /* AI SECTION */
         .ai-section {
@@ -397,6 +425,18 @@
         </div>
 
     </section>
+    <!-- MY BORROWED BOOKS -->
+<section class="borrowed-section" id="borrowed">
+    <h2 class="section-title">My Borrowed Books</h2>
+
+    <p class="section-subtitle">
+        View the books you have borrowed from the library.
+    </p>
+
+    <div id="borrowedBooksList" class="borrowed-grid">
+        <p>No books borrowed yet.</p>
+    </div>
+</section>
 
     <!-- AI -->
     <section class="ai-section" id="ai">
@@ -433,8 +473,44 @@
     </footer>
 <script>
 function borrowBook(bookName) {
+    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+    if (!borrowedBooks.includes(bookName)) {
+        borrowedBooks.push(bookName);
+        localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+    }
+
     alert("Book borrowed successfully!\n\nBook: " + bookName);
+
+    displayBorrowedBooks();
 }
+
+function displayBorrowedBooks() {
+    const list = document.getElementById("borrowedBooksList");
+
+    if (!list) return;
+
+    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+    if (borrowedBooks.length === 0) {
+        list.innerHTML = "<p>No books borrowed yet.</p>";
+        return;
+    }
+
+    list.innerHTML = "";
+
+    borrowedBooks.forEach(function(book) {
+        list.innerHTML += `
+            <div class="borrowed-book">
+                <h3>📖 ${book}</h3>
+                <p>Status: <strong>Borrowed</strong></p>
+                <p>Loan period: 14 days</p>
+            </div>
+        `;
+    });
+}
+
+window.onload = displayBorrowedBooks;
 </script>
 </body>
 </html>
