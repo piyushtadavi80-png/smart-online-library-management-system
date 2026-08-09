@@ -240,6 +240,19 @@
     color: #6b7280;
     margin: 6px 0;
 }
+        .return-btn {
+    background: #172554;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.return-btn:hover {
+    background: #0f172a;
+}
 
         /* AI SECTION */
         .ai-section {
@@ -505,10 +518,26 @@ function displayBorrowedBooks() {
                 <h3>📖 ${book}</h3>
                 <p>Status: <strong>Borrowed</strong></p>
                 <p>Loan period: 14 days</p>
+                <button class="return-btn" onclick="returnBook('${book}')">
+                    Return Book
+                </button>
             </div>
         `;
     });
 }
+    function returnBook(bookName) {
+    let borrowedBooks = JSON.parse(localStorage.getItem("borrowedBooks")) || [];
+
+    borrowedBooks = borrowedBooks.filter(function(book) {
+        return book !== bookName;
+    });
+
+    localStorage.setItem("borrowedBooks", JSON.stringify(borrowedBooks));
+
+    alert("Book returned successfully!\n\nBook: " + bookName);
+
+    displayBorrowedBooks();
+    }
 
 window.onload = displayBorrowedBooks;
 </script>
